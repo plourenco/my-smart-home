@@ -1,0 +1,22 @@
+- platform: template
+  covers:
+    garage_gate:
+      friendly_name: "Garage Gate"
+      open_cover:
+        service: switch.turn_on
+        data:
+          entity_id: switch.garage_gate
+      close_cover:
+        service: switch.turn_on
+        data:
+          entity_id: switch.garage_gate
+    outside_gate:
+      friendly_name: "Main Gate"
+      open_cover:
+        service: switch.turn_on
+        data:
+          entity_id: switch.outside_gate
+      close_cover:
+        service: switch.turn_on
+        data:
+          entity_id: switch.outside_gate

@@ -1,0 +1,9 @@
+- name: ALL_DEVICES
+  platform: group
+  services: 
+    - service: mobile_app_comperito_x
+    - service: mobile_app_comperito_x_2
+    - service: mobile_app_iphone_de_pedro
+    - service: mobile_app_iphone_de_pedro_2
+    - service: mobile_app_iphone_de_maria
+

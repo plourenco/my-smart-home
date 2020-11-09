@@ -1,0 +1,30 @@
+- alias: 'Flash the lights when alarm is triggerd'
+  trigger:
+    - platform: state
+      entity_id: alarm_control_panel.home_alarm
+      to: 'triggered'
+  action:
+    - service: scene.create
+      data:
+        scene_id: before_alarm
+        snapshot_entities:
+          - light.living_room_lights_left_1
+          - light.living_room_lights_right_1
+    - service: light.turn_on
+      data:
+        entity_id: light.living_room_lights
+        effect: "Alarm"
+        brightness: 255
+- alias: 'Stop the lights when alarm is disarmed'
+  trigger:
+    - platform: state
+      entity_id: alarm_control_panel.home_alarm
+      to: 'disarmed'
+  action:
+    - service: light.turn_on
+      data: 
+        entity_id: light.living_room_lights
+        effect: "Stop"
+    - service: scene.turn_on
+      data:
+        entity_id: scene.before_alarm

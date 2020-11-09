@@ -1,0 +1,4 @@
+living_room_tv_toggle:
+  sequence:
+    - service: switch.toggle
+      entity_id: switch.living_room_tv_toggle 

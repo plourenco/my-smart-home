@@ -1,0 +1,11 @@
+- platform: mqtt
+  name: wallswitch_1_1
+  state_topic: "livingroom/wallswitch_1/stat/POWER1"
+  payload_on: "ON"
+  payload_off: "OFF"
+- platform: mqtt
+  name: wallswitch_1_2
+  state_topic: "livingroom/wallswitch_1/stat/POWER2"
+  payload_on: "ON"
+  payload_off: "OFF"
+

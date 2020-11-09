@@ -1,0 +1,10 @@
+'1586118020363':
+  alias: living_room_tv
+  sequence:
+  - entity_id: switch.living_room_tv_toggle
+    service: switch.toggle
+'1586118056292':
+  alias: living_room_tv_toggle
+  sequence:
+  - entity_id: switch.living_room_tv_toggle
+    service: switch.toggle

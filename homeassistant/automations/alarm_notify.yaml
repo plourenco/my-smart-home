@@ -1,0 +1,20 @@
+- alias: 'Send notification when alarm is triggered'
+  trigger:
+    - platform: state
+      entity_id: alarm_control_panel.home_alarm
+      to: 'triggered'
+  action:
+    - service: notify.all_devices
+      data:
+        title: "Alarme disparado"
+        message: "O alarme disparou às {{ states('sensor.time') }}!"
+- alias: 'Send notification when alarm is disarmed'
+  trigger:
+    - platform: state
+      entity_id: alarm_control_panel.home_alarm
+      to: 'disarmed'
+  action:
+    - service: notify.all_devices
+      data:
+        title: "Alarme desarmado"
+        message: "O alarme foi desarmado às {{ states('sensor.time') }}"

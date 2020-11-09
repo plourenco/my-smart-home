@@ -1,0 +1,7 @@
+- platform: waqi
+  token: !secret waqi_token
+  locations:
+    - Porto
+  stations:
+    - 8373
+    - 8372

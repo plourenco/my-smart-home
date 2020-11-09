@@ -1,0 +1,68 @@
+version: '2'
+
+services:
+  nginx:
+    image: nginx:latest
+    container_name: nginx-proxy
+    restart: always
+    depends_on:
+      - homeassistant
+    networks:
+      - nginx
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
+    command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
+  certbot:
+    image: certbot/certbot:arm32v6-latest
+    container_name: certbot
+    restart: always
+    depends_on:
+      - nginx
+    networks:
+      - nginx
+    volumes:
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+  ddclient:
+    image: linuxserver/ddclient
+    container_name: ddclient
+    restart: unless-stopped
+    volumes:
+      - ./ddclient:/config
+  mqtt:
+    image: eclipse-mosquitto:latest
+    container_name: mqtt
+    restart: always
+    volumes:
+      - ./mqtt:/etc/mosquitto
+    ports:
+      - 1883:1883
+    networks:
+      - homeassistant
+  homeassistant:
+    image: homeassistant/home-assistant
+    container_name: homeassistant
+    restart: always
+    networks:
+      - nginx
+      - homeassistant
+    ports:
+      - 51827:51827
+    volumes:
+      - /home/ubuntu/.homeassistant:/config
+    environment:
+      - TZ=America/New_York
+    expose:
+      - 8123
+
+networks:
+  nginx:
+    driver: bridge
+  homeassistant: 
+    driver: bridge

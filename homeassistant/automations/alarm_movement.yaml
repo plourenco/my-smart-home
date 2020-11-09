@@ -1,0 +1,15 @@
+- action:
+    service: alarm_control_panel.alarm_trigger
+    entity_id: alarm_control_panel.home_alarm
+  alias: Trigger the alarm when movement is detected
+  condition:
+    - condition: state
+      entity_id: alarm_control_panel.home_alarm
+      state: armed_away
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.body_sensor_occupancy_1
+      to: 'on'
+    - platform: state
+      entity_id: binary_sensor.body_sensor_occupancy_2
+      to: 'on'

@@ -1,0 +1,34 @@
+- platform: mqtt
+  name: "Living Room Shutter Left"
+  availability_topic: "livingroom/wallswitch_1/tele/LWT"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  position_topic: "livingroom/wallswitch_1/stat/SHUTTER1"
+  position_open: 100
+  position_closed: 0
+  set_position_topic: "livingroom/wallswitch_1/cmnd/ShutterPosition1"
+  value_template: "{{ value | int }}"
+  command_topic: "livingroom/wallswitch_1/cmnd/Backlog"
+  payload_open: "ShutterOpen1"
+  payload_close: "ShutterClose1"
+  payload_stop: "ShutterStop1"
+  retain: false
+  optimistic: false
+  qos: 1
+- platform: mqtt
+  name: "Living Room Shutter Right"
+  availability_topic: "livingroom/wallswitch_2/tele/LWT"
+  payload_available: "Online"
+  payload_not_available: "Offline"
+  position_topic: "livingroom/wallswitch_2/stat/SHUTTER1"
+  position_open: 100
+  position_closed: 0
+  set_position_topic: "livingroom/wallswitch_2/cmnd/ShutterPosition1"
+  value_template: "{{ value | int }}"
+  command_topic: "livingroom/wallswitch_2/cmnd/Backlog"
+  payload_open: "ShutterOpen1"
+  payload_close: "ShutterClose1"
+  payload_stop: "ShutterStop1"
+  retain: false
+  optimistic: false
+  qos: 1

@@ -1,0 +1,114 @@
+# Main configuration
+homeassistant:
+  name: "Home"
+  customize: !include customize.yaml
+  customize_domain: !include customize_domain.yaml
+  auth_mfa_modules:
+    - type: totp
+
+system_health:
+logger:
+  default: warning
+  logs:
+    homeassistant.components.homekit: debug
+    pyhap: debug
+
+recorder:
+  auto_purge: true
+  purge_keep_days: 14
+  exclude:
+    domains:
+      - automation
+      - updater
+      - light
+      - script
+    entities:
+      - sun.sun
+
+lovelace:
+  mode: storage
+
+# HTTP setup
+http:
+  use_x_forwarded_for: true
+  trusted_proxies: 127.0.0.1
+
+# MQTT broker
+mqtt:
+  broker: mqtt
+  port: 1883
+  username: !secret mqtt_username
+  password: !secret mqtt_password
+  discovery: true
+  birth_message:
+    topic: 'hass/status'
+    payload: 'online'
+  will_message:
+    topic: 'hass/status'
+    payload: 'offline'
+
+# Frontend themes & extras
+frontend:
+  themes: !include_dir_merge_named themes 
+
+# Integrations
+sun:
+weather:
+  - platform: ipma
+vacuum:
+  - platform: xiaomi_miio
+    host: 192.168.1.72
+    name: "Living Room Vacuum"
+    token: !secret xiaomi_vacuum_token
+yeelight:
+  devices: !include yeelight.yaml
+ring:
+  username: !secret ring_username
+  password: !secret ring_password
+# bmw_connected_drive:
+#   pedro:
+#     username: !secret bmw_connected_username
+#     password: !secret bmw_connected_password
+#     region: "rest_of_world"
+#     read_only: true
+
+# Streaming
+# ffmpeg:
+#   ffmpeg_bin: /usr/local/bin/ffmpeg
+# stream:
+
+# iOS setup
+ios:
+homekit: !include homekit.yaml
+
+# Text to speech
+tts:
+  - platform: google_translate
+
+logbook:
+history:
+
+# Mobile app integration
+mobile_app:
+notify: !include notify.yaml
+
+# Devices
+group: !include groups.yaml
+automation: !include_dir_merge_list automations/
+script: !include_dir_merge_named scripts/
+sensor: !include_dir_merge_list sensors/
+light: !include_dir_merge_list lights/
+binary_sensor: !include_dir_merge_list binary_sensors/
+cover: !include_dir_merge_list covers/
+switch: !include_dir_merge_list switches/
+camera: !include_dir_merge_list cameras/
+scene: !include_dir_merge_list scenes/
+media_player: !include_dir_merge_list media_players/
+
+# Device discovery
+discovery:
+#  ignore:
+#    - yeelight
+
+# The alarm
+alarm_control_panel: !include alarm.yaml
