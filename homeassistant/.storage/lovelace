@@ -1,0 +1,134 @@
+{
+    "version": 1,
+    "key": "lovelace",
+    "data": {
+        "config": {
+            "title": "Home",
+            "views": [
+                {
+                    "path": "default_view",
+                    "title": "Home",
+                    "panel": false,
+                    "icon": "mdi:home",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "weather-forecast",
+                            "entity": "weather.praia_de_leca_da_palmeira",
+                            "show_forecast": true
+                        },
+                        {
+                            "type": "entities",
+                            "title": "Port\u00f5es",
+                            "style": {
+                                ".": {
+                                    ".card-content": {
+                                        "hui-cover-entity-row": {
+                                            "$": {
+                                                "hui-generic-entity-row": {
+                                                    "$": "state-badge {border-radius: 0%}\n"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "entities": [
+                                {
+                                    "entity": "cover.outside_gate",
+                                    "image": "/local/img/icons/gate.svg",
+                                    "secondary_info": "last-changed",
+                                    "name": "Port\u00e3o"
+                                },
+                                {
+                                    "entity": "cover.garage_gate",
+                                    "image": "/local/img/icons/garage.svg",
+                                    "secondary_info": "last-changed",
+                                    "name": "Garagem"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "binary_sensor.front_door_ding",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "sensor.front_door_battery"
+                                },
+                                {
+                                    "entity": "sensor.front_door_wifi_signal_strength"
+                                },
+                                {
+                                    "entity": "binary_sensor.front_door_motion",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "binary_sensor.body_sensor_occupancy_2",
+                                    "name": "Movimento no Hall",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "binary_sensor.body_sensor_occupancy_1",
+                                    "name": "Movimento na Cozinha",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "sensor.waqi_sobreiras_lordelo_do_ouro_porto_portugal",
+                                    "name": "Qualidade do Ar"
+                                }
+                            ],
+                            "title": "Sensores",
+                            "show_header_toggle": false,
+                            "state_color": true
+                        },
+                        {
+                            "type": "picture-entity",
+                            "entity": "camera.front_door"
+                        },
+                        {
+                            "type": "alarm-panel",
+                            "entity": "alarm_control_panel.home_alarm"
+                        },
+                        {
+                            "type": "custom:mini-graph-card",
+                            "entities": [
+                                {
+                                    "entity": "binary_sensor.body_sensor_occupancy_2",
+                                    "name": "Hall"
+                                },
+                                {
+                                    "entity": "binary_sensor.body_sensor_occupancy_1",
+                                    "name": "Cozinha"
+                                },
+                                {
+                                    "entity": "binary_sensor.front_door_motion",
+                                    "name": "Entrada"
+                                }
+                            ],
+                            "name": "Movimento (\u00faltima hora)",
+                            "icon": "mdi:motion-sensor",
+                            "hours_to_show": 1,
+                            "points_per_hour": 30,
+                            "aggregate_func": "max",
+                            "line_width": 2,
+                            "smoothing": false,
+                            "state_map": [
+                                {
+                                    "value": "off",
+                                    "label": "Vazio"
+                                },
+                                {
+                                    "value": "on",
+                                    "label": "Detetado"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

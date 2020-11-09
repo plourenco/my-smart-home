@@ -1,0 +1,133 @@
+{
+    "version": 1,
+    "key": "lovelace.living_room",
+    "data": {
+        "config": {
+            "views": [
+                {
+                    "title": "Living room",
+                    "icon": "mdi:sofa",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "entities",
+                            "title": "Persianas",
+                            "show_header_toggle": false,
+                            "debug_cardmod": true,
+                            "style": {
+                                ".": {
+                                    ".card-content": {
+                                        "slider-entity-row": {
+                                            "$": {
+                                                "hui-generic-entity-row": {
+                                                    "$": "state-badge {border-radius: 0%}\n"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "entities": [
+                                {
+                                    "type": "custom:slider-entity-row",
+                                    "entity": "cover.living_room_shutter_left",
+                                    "secondary_info": "last-changed",
+                                    "full_row": false,
+                                    "name": "Esquerda"
+                                },
+                                {
+                                    "type": "custom:slider-entity-row",
+                                    "entity": "cover.living_room_shutter_right",
+                                    "secondary_info": "last-changed",
+                                    "full_row": false,
+                                    "name": "Direita"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "light.living_room_lights",
+                                    "name": "Todas",
+                                    "secondary_info": "last-changed"
+                                }
+                            ],
+                            "title": "Luzes"
+                        },
+                        {
+                            "type": "entities",
+                            "title": "Aparelhos",
+                            "show_header_toggle": false,
+                            "style": {
+                                ".": {
+                                    ".card-content": {
+                                        "hui-media-player-entity-row": {
+                                            "$": {
+                                                "hui-generic-entity-row": {
+                                                    "$": "state-badge {border-radius: 0%}\n"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "entities": [
+                                {
+                                    "entity": "media_player.living_room_tv",
+                                    "image": "/local/img/icons/tv.svg",
+                                    "name": "TV"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "custom:vacuum-card",
+                            "entity": "vacuum.living_room_vacuum",
+                            "stats": {
+                                "default": [
+                                    {
+                                        "attribute": "filter_left",
+                                        "unit": "hours",
+                                        "subtitle": "Filter"
+                                    },
+                                    {
+                                        "attribute": "side_brush_left",
+                                        "unit": "hours",
+                                        "subtitle": "Side brush"
+                                    },
+                                    {
+                                        "attribute": "main_brush_left",
+                                        "unit": "hours",
+                                        "subtitle": "Main brush"
+                                    },
+                                    {
+                                        "attribute": "sensor_dirty_left",
+                                        "unit": "hours",
+                                        "subtitle": "Sensors"
+                                    }
+                                ],
+                                "cleaning": [
+                                    {
+                                        "attribute": "cleaned_area",
+                                        "unit": "m2",
+                                        "subtitle": "Cleaning area"
+                                    },
+                                    {
+                                        "attribute": "cleaning_time",
+                                        "unit": "minutes",
+                                        "subtitle": "Cleaning time"
+                                    }
+                                ]
+                            },
+                            "show_name": false,
+                            "show_status": false,
+                            "show_toolbar": true,
+                            "compact_view": false
+                        }
+                    ]
+                }
+            ],
+            "title": "Living room"
+        }
+    }
+}

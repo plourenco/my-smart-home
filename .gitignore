@@ -7,23 +7,3 @@ mqtt/
 # Other
 init-letsencrypt.sh
 .DS_Store
-
-# Ignore folders.
-.storage
-.cloud
-.google.token
-www/
-
-# Ignore hidden control files.
-.HA_VERSION
-.homekit.state
-
-# Ignore logs & db files.
-*.log
-*.db
-
-# Ignore sensitive home assistant files
-ip_bans.yaml
-secrets.yaml
-known_devices.yaml
-broadlink.yaml

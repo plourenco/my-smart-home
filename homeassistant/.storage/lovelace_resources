@@ -1,0 +1,53 @@
+{
+    "version": 1,
+    "key": "lovelace_resources",
+    "data": {
+        "items": [
+            {
+                "url": "/local/vacuum-card/vacuum-card.js",
+                "type": "module",
+                "id": "07ecf5487c23411a9d9955b093ff5f69"
+            },
+            {
+                "url": "/local/button-card/button-card.js",
+                "type": "module",
+                "id": "cd7e71ab111d44f7b2b62955b7a568f6"
+            },
+            {
+                "url": "/local/slider-entity-row/slider-entity-row.js",
+                "type": "module",
+                "id": "79a11d2a5b6b4f59bcdfdc4dd4503f00"
+            },
+            {
+                "url": "/local/weather-card/weather-card.js",
+                "type": "module",
+                "id": "97dce93efc1d42b59cbe26c90783f4b1"
+            },
+            {
+                "url": "/local/layout-card/layout-card.js",
+                "type": "module",
+                "id": "93299c360fe74837839946c6f77711df"
+            },
+            {
+                "url": "/local/layout-card/card-tools.js",
+                "type": "module",
+                "id": "b880cec738d44a77a98ef74f2eaef61b"
+            },
+            {
+                "url": "/local/card-mod/card-mod.js",
+                "type": "module",
+                "id": "3fd8dbeb70054798904663b2e1bd0304"
+            },
+            {
+                "url": "/local/mini-graph-card/mini-graph-card.js",
+                "type": "module",
+                "id": "83f981f1c9424d47a778977ab5d012d5"
+            },
+            {
+                "url": "/local/search-card/search-card.js",
+                "type": "module",
+                "id": "920482619f7e40efb62dbdd5f1f170e8"
+            }
+        ]
+    }
+}
