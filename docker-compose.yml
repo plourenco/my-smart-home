@@ -55,7 +55,7 @@ services:
     ports:
       - 51827:51827
     volumes:
-      - /home/ubuntu/.homeassistant:/config
+      - ./config:/config
     environment:
       - TZ=America/New_York
     expose:

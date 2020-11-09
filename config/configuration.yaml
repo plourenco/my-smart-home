@@ -20,7 +20,6 @@ recorder:
     domains:
       - automation
       - updater
-      - light
       - script
     entities:
       - sun.sun
@@ -86,6 +85,11 @@ tts:
   - platform: google_translate
 
 logbook:
+  exclude:
+    domains:
+      - weather
+      - sensor
+      - script
 history:
 
 # Mobile app integration
