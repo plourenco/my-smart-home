@@ -6,6 +6,7 @@ mqtt/
 
 # Other
 init-letsencrypt.sh
+.DS_Store
 
 # Ignore folders.
 .storage
