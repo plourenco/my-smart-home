@@ -1,6 +1,6 @@
 # Main configuration
 homeassistant:
-  name: "Home"
+  name: "Home Hub"
   customize: !include customize.yaml
   customize_domain: !include customize_domain.yaml
   auth_mfa_modules:
@@ -13,24 +13,15 @@ logger:
     homeassistant.components.homekit: debug
     pyhap: debug
 
-recorder:
-  auto_purge: true
-  purge_keep_days: 14
-  exclude:
-    domains:
-      - automation
-      - updater
-      - script
-    entities:
-      - sun.sun
-
 lovelace:
   mode: storage
 
 # HTTP setup
 http:
   use_x_forwarded_for: true
-  trusted_proxies: 127.0.0.1
+  trusted_proxies: 
+    - 127.0.0.1
+    - 172.16.1.2
 
 # MQTT broker
 mqtt:
@@ -64,12 +55,12 @@ yeelight:
 ring:
   username: !secret ring_username
   password: !secret ring_password
-# bmw_connected_drive:
-#   pedro:
-#     username: !secret bmw_connected_username
-#     password: !secret bmw_connected_password
-#     region: "rest_of_world"
-#     read_only: true
+bmw_connected_drive:
+  pedro:
+    username: !secret bmw_connected_username
+    password: !secret bmw_connected_password
+    region: "rest_of_world"
+    read_only: true
 
 # Streaming
 # ffmpeg:
@@ -84,6 +75,7 @@ homekit: !include homekit.yaml
 tts:
   - platform: google_translate
 
+# Log recorder
 logbook:
   exclude:
     domains:
@@ -91,6 +83,17 @@ logbook:
       - sensor
       - script
 history:
+
+recorder:
+  auto_purge: true
+  purge_keep_days: 14
+  exclude:
+    domains:
+      - automation
+      - updater
+      - script
+    entities:
+      - sun.sun
 
 # Mobile app integration
 mobile_app:
@@ -111,8 +114,6 @@ media_player: !include_dir_merge_list media_players/
 
 # Device discovery
 discovery:
-#  ignore:
-#    - yeelight
 
-# The alarm
+# Alarm
 alarm_control_panel: !include alarm.yaml

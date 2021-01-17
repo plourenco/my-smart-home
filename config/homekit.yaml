@@ -1,4 +1,5 @@
 auto_start: true
+safe_mode: true
 advertise_ip: !secret base_ip
 filter:
   include_entities:

@@ -50,10 +50,12 @@ services:
     container_name: homeassistant
     restart: always
     networks:
-      - nginx
-      - homeassistant
+      homeassistant:
+        ipv4_address: 172.16.1.2
+      nginx:
     ports:
       - 51827:51827
+      - 5353:5353
     volumes:
       - ./config:/config
     environment:
@@ -66,3 +68,8 @@ networks:
     driver: bridge
   homeassistant: 
     driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.16.0.0/16
+
