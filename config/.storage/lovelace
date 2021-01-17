@@ -125,6 +125,74 @@
                                     "label": "Detetado"
                                 }
                             ]
+                        },
+                        {
+                            "type": "horizontal-stack",
+                            "cards": [
+                                {
+                                    "type": "custom:mini-graph-card",
+                                    "name": "Bateria",
+                                    "entities": [
+                                        "sensor.330e_iperformance_charging_level_hv"
+                                    ],
+                                    "line_color": "blue",
+                                    "line_width": 8,
+                                    "font_size": 75
+                                },
+                                {
+                                    "type": "custom:mini-graph-card",
+                                    "name": "Alcance Combust\u00edvel",
+                                    "entities": [
+                                        "sensor.330e_iperformance_remaining_range_fuel"
+                                    ],
+                                    "line_color": "#e74c3c",
+                                    "line_width": 8,
+                                    "font_size": 75
+                                },
+                                {
+                                    "type": "custom:mini-graph-card",
+                                    "name": "Alcance El\u00e9trico",
+                                    "entities": [
+                                        "sensor.330e_iperformance_remaining_range_electric"
+                                    ],
+                                    "line_color": "var(--accent-color)",
+                                    "line_width": 8,
+                                    "font_size": 75
+                                }
+                            ]
+                        },
+                        {
+                            "type": "picture-elements",
+                            "elements": [
+                                {
+                                    "type": "state-badge",
+                                    "entity": "binary_sensor.330e_iperformance_lids",
+                                    "style": {
+                                        "top": "32%",
+                                        "left": "40%",
+                                        "color": "rgba(0,0,0,0)"
+                                    }
+                                },
+                                {
+                                    "type": "state-badge",
+                                    "entity": "binary_sensor.330e_iperformance_lights_parking",
+                                    "style": {
+                                        "top": "55%",
+                                        "left": "10%",
+                                        "color": "rgba(0,0,0,0)"
+                                    }
+                                },
+                                {
+                                    "type": "state-badge",
+                                    "entity": "binary_sensor.330e_iperformance_charging_status",
+                                    "style": {
+                                        "top": "80%",
+                                        "left": "70%",
+                                        "color": "rgba(0,0,0,0)"
+                                    }
+                                }
+                            ],
+                            "image": "/local/img/car-top-view.png"
                         }
                     ]
                 }
