@@ -1,8 +1,8 @@
-192.168.1.68:
-  name: "Living Room Lights Right 1"
+192.168.1.88:
+  name: "Living Room Lights 1"
   model: color2
   save_on_change: true
-192.168.1.69:
-  name: "Living Room Lights Left 1"
+192.168.1.89:
+  name: "Living Room Lights 2"
   model: color2
   save_on_change: true
