@@ -5,19 +5,6 @@ cover.living_room_shutter_left:
   friendly_name: Living Room Shutter (Left)
 cover.living_room_shutter_right:
   friendly_name: Living Room Shutter (Right)
-light.living_room_lights:
-  friendly_name: Living Room Lights
-light.living_room_lights_left_1:
-  friendly_name: Living Room Lights (Left)
-light.living_room_lights_right_1:
-  friendly_name: Living Room Lights (Right)
-light.office_lights:
-  friendly_name: Office Lights
-alarm_control_panel.home_alarm:
-  friendly_name: Alarm
-media_player.living_room_tv:
-  friendly_name: Living Room TV
-  device_class: tv
 
 # Classes & state
 cover.garage_gate:
