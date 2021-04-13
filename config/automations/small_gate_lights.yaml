@@ -1,0 +1,12 @@
+- alias: Small Gate Lights
+  description: Turn on the entrance lights when the gate is opened
+  trigger:
+    - platform: state
+      entity_id: switch.entrance_small_gate
+      to: "on"
+  action:
+    - service: switch.turn_on
+      entity_id: switch.entrance_lights
+    - delay: 00:00:30
+    - service: switch.turn_off
+      entity_id: switch.entrance_lights
