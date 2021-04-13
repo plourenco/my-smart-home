@@ -1,0 +1,8 @@
+- platform: mqtt
+  name: 'Entrance'
+  command_topic: 'hall/switch_entrance_lights/cmnd/POWER'
+  state_topic: 'hall/switch_entrance_lights/stat/POWER'
+  qos: 1
+  payload_on: 'ON'
+  payload_off: 'OFF'
+  retain: false

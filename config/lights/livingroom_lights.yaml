@@ -1,6 +1,0 @@
-- platform: group
-  name: Living Room Lights
-  entities:
-    - light.living_room_lights_left_1
-    - light.living_room_lights_right_1
-
