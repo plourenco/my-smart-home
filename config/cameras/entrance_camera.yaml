@@ -1,5 +1,0 @@
-#- platform: ffmpeg
-#  name: "Entrance"
-#  input: -rtsp_transport tcp -i rtsp://192.168.1.108:554/ucast/11
-#  extra_arguments: !secret camera_args
-
