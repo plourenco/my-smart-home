@@ -1,0 +1,11 @@
+- auto_start: true
+  advertise_ip: !secret base_ip
+  filter:
+    include_domains:
+      - cover
+      - alarm_control_panel
+      - light
+      - lock
+  entity_config:
+    alarm_control_panel.home_alarm:
+      code: !secret alarm_code

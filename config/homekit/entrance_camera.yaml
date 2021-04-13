@@ -1,0 +1,13 @@
+- name: Entrance Camera
+  advertise_ip: !secret base_ip
+  port: 21065
+  mode: accessory
+  filter:
+    include_entities:
+      - camera.entrance
+  entity_config:
+    camera.entrance:
+      max_width: 640
+      max_height: 480
+      max_fps: 10
+      video_codec: copy
