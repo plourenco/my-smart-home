@@ -6,6 +6,9 @@ homeassistant:
   auth_mfa_modules:
     - type: totp
 
+zeroconf:
+   default_interface: true
+
 system_health:
 logger:
   default: warning
@@ -22,6 +25,7 @@ http:
   trusted_proxies: 
     - 127.0.0.1
     - 172.16.1.2
+    - 172.23.0.3
 
 # MQTT broker
 mqtt:
@@ -63,13 +67,13 @@ bmw_connected_drive:
     read_only: true
 
 # Streaming
-# ffmpeg:
-#   ffmpeg_bin: /usr/local/bin/ffmpeg
-# stream:
+ffmpeg:
+  ffmpeg_bin: /usr/bin/ffmpeg
+stream:
 
 # iOS setup
 ios:
-homekit: !include homekit.yaml
+homekit: !include_dir_merge_list homekit/
 
 # Text to speech
 tts:
@@ -111,6 +115,7 @@ switch: !include_dir_merge_list switches/
 camera: !include_dir_merge_list cameras/
 scene: !include_dir_merge_list scenes/
 media_player: !include_dir_merge_list media_players/
+lock: !include_dir_merge_list locks/
 
 # Device discovery
 discovery:
