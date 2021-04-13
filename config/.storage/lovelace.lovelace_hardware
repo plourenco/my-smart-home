@@ -1,0 +1,60 @@
+{
+    "version": 1,
+    "key": "lovelace.lovelace_hardware",
+    "data": {
+        "config": {
+            "views": [
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "custom:mini-graph-card",
+                            "entities": [
+                                "sensor.memory_free"
+                            ],
+                            "name": "Mem\u00f3ria",
+                            "hours_to_show": 24,
+                            "points_per_hour": 0.5
+                        },
+                        {
+                            "type": "custom:mini-graph-card",
+                            "entities": [
+                                "sensor.processor_use_percent"
+                            ],
+                            "name": "CPU",
+                            "hours_to_show": 24,
+                            "points_per_hour": 2,
+                            "line_color": "var(--info-color)"
+                        },
+                        {
+                            "type": "custom:mini-graph-card",
+                            "name": "Rede",
+                            "icon": "mdi:server",
+                            "entities": [
+                                {
+                                    "entity": "sensor.network_in_eth0",
+                                    "name": "Network In"
+                                },
+                                {
+                                    "entity": "sensor.network_out_eth0",
+                                    "name": "Network Out"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "custom:mini-graph-card",
+                            "entities": [
+                                {
+                                    "entity": "sensor.disk_use_percent"
+                                }
+                            ],
+                            "name": "Disco",
+                            "hours_to_show": 168,
+                            "group_by": "date"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

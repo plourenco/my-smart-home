@@ -48,12 +48,21 @@
                             "type": "entities",
                             "entities": [
                                 {
-                                    "entity": "light.living_room_lights",
+                                    "entity": "light.living_room",
                                     "name": "Todas",
                                     "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "light.living_room_lights_1",
+                                    "name": "Fase 1"
+                                },
+                                {
+                                    "entity": "light.living_room_lights_2",
+                                    "name": "Fase 2"
                                 }
                             ],
-                            "title": "Luzes"
+                            "title": "Luzes",
+                            "show_header_toggle": false
                         },
                         {
                             "type": "entities",

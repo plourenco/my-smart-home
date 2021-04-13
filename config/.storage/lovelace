@@ -4,6 +4,9 @@
     "data": {
         "config": {
             "title": "Home",
+            "custom_header": {
+                "compact_mode": true
+            },
             "views": [
                 {
                     "path": "default_view",
@@ -14,7 +17,7 @@
                     "cards": [
                         {
                             "type": "weather-forecast",
-                            "entity": "weather.praia_de_leca_da_palmeira",
+                            "entity": "weather.home",
                             "show_forecast": true
                         },
                         {
@@ -53,31 +56,27 @@
                             "entities": [
                                 {
                                     "entity": "binary_sensor.front_door_ding",
-                                    "secondary_info": "last-changed"
+                                    "secondary_info": "last-changed",
+                                    "name": "Campa\u00ednha"
                                 },
                                 {
-                                    "entity": "sensor.front_door_battery"
-                                },
-                                {
-                                    "entity": "sensor.front_door_wifi_signal_strength"
+                                    "entity": "sensor.front_door_wifi_signal_strength",
+                                    "name": "WiFi Campa\u00ednha"
                                 },
                                 {
                                     "entity": "binary_sensor.front_door_motion",
-                                    "secondary_info": "last-changed"
+                                    "secondary_info": "last-changed",
+                                    "name": "Movimento Campa\u00ednha"
                                 },
                                 {
                                     "entity": "binary_sensor.body_sensor_occupancy_2",
-                                    "name": "Movimento no Hall",
+                                    "name": "Movimento Hall",
                                     "secondary_info": "last-changed"
                                 },
                                 {
                                     "entity": "binary_sensor.body_sensor_occupancy_1",
-                                    "name": "Movimento na Cozinha",
+                                    "name": "Movimento Cozinha",
                                     "secondary_info": "last-changed"
-                                },
-                                {
-                                    "entity": "sensor.waqi_sobreiras_lordelo_do_ouro_porto_portugal",
-                                    "name": "Qualidade do Ar"
                                 }
                             ],
                             "title": "Sensores",
@@ -135,7 +134,7 @@
                                     "entities": [
                                         "sensor.330e_iperformance_charging_level_hv"
                                     ],
-                                    "line_color": "blue",
+                                    "line_color": "var(--info-color)",
                                     "line_width": 8,
                                     "font_size": 75
                                 },
@@ -193,6 +192,33 @@
                                 }
                             ],
                             "image": "/local/img/car-top-view.png"
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "light.entrance",
+                                    "name": "Luzes de entrada",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "lock.entrance_small_gate",
+                                    "name": "Port\u00e3o pequeno de entrada",
+                                    "secondary_info": "last-updated"
+                                }
+                            ],
+                            "title": "Exterior",
+                            "show_header_toggle": false
+                        },
+                        {
+                            "type": "custom:mini-graph-card",
+                            "name": "Qualidade do Ar",
+                            "entities": [
+                                "sensor.waqi_sobreiras_lordelo_do_ouro_porto_portugal"
+                            ],
+                            "line_color": "var(--info-color)",
+                            "line_width": 8,
+                            "font_size": 75
                         }
                     ]
                 }

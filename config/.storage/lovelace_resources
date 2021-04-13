@@ -47,6 +47,11 @@
                 "url": "/local/search-card/search-card.js",
                 "type": "module",
                 "id": "920482619f7e40efb62dbdd5f1f170e8"
+            },
+            {
+                "url": "/local/custom-header/custom-header.js",
+                "type": "module",
+                "id": "9fe9026f1fdf4415b5633601eeac54f2"
             }
         ]
     }
