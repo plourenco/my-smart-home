@@ -1,0 +1,8 @@
+- platform: mqtt
+  name: Entrance Small Gate
+  command_topic: 'shellies/shelly1-8CAAB55D70FC/relay/0/command'
+  state_topic: 'shellies/shelly1-8CAAB55D70FC/relay/0'
+  payload_unlock: 'on'
+  payload_lock: 'off'
+  state_unlocked: 'on'
+  state_locked: 'off'
