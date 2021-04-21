@@ -47,18 +47,18 @@ As a result, this is my smart home configuration, made with lots of effort, IoT,
 ### Living Room
 
 - Floor lamps (x2): [Yeelight E27 RGBW](https://en.yeelight.com/product/819.html)
-- Wall dimmer (x1): [IKEA Tradfri Dimmer (Zigbee)](https://www.ikea.com/pt/pt/catalog/products/10460751/)
+- Wall dimmer: [IKEA Tradfri Dimmer (Zigbee)](https://www.ikea.com/pt/pt/catalog/products/10460751/)
 - Light switch (x2): [Sonoff Mini](https://www.itead.cc/smart-home.html)
   - The sonoff's minis are used to turn the existing switches smart and allow them to control the Yeelights without cutting the power. Sonoff's will always keep the power, except if they can't communicate with the core (network is down). In such event, the relay will kick in.
-- Wireless sensor (x1): [Xiaomi Aqara Body Sensor (Zigbee)](https://www.aqara.com/us/motion_sensor.html)
+- Wireless sensor: [Xiaomi Aqara Body Sensor (Zigbee)](https://www.aqara.com/us/motion_sensor.html)
 - Shutter switches (x2): [Sonoff T1](https://www.itead.cc/smart-home.html) (soldering required to flash a custom firmware - [Tasmota](https://github.com/arendst/Tasmota))
-- Vacuum (x1): Xiaomi Roborock S50
+- Vacuum: Xiaomi Roborock S50
 
 ### Office
 
-- Table lamp (x1): [Yeelight E27 RGBW]()
+- Table lamp: [Yeelight E27 RGBW]()
 
 ### Kitchen
 
 - Shutter switches (x2): [Moes Wifi (clicky) Smart Switch]() (soldering required to flash a custom firmware - [Tasmota](https://github.com/arendst/Tasmota))
-- Boiler controller (wish-list)
+- Boiler: Thermostat using [Shelly 1](https://shop.shelly.cloud/shelly-1-wifi-smart-home-automation#50) and multiple temperature sensors in each division.
