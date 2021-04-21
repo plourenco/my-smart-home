@@ -1,0 +1,8 @@
+- platform: mqtt
+  name: Boiler
+  command_topic: 'shellies/shelly1-E8DB84D32448/relay/0/command'
+  state_topic: 'shellies/shelly1-E8DB84D32448/relay/0'
+  payload_on: 'on'
+  payload_off: 'off'
+  state_on: 'on'
+  state_off: 'off'
