@@ -1,8 +1,8 @@
 192.168.1.88:
-  name: "Living Room Lights 1"
+  name: "Living Room Drawer Lights"
   model: color2
   save_on_change: true
 192.168.1.89:
-  name: "Living Room Lights 2"
+  name: "Living Room TV Lights"
   model: color2
   save_on_change: true
