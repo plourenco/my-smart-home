@@ -1,0 +1,12 @@
+binary_sensor:
+  - platform: group
+    name: Body sensors
+    entities:
+      - binary_sensor.entrance_body_sensor
+      - binary_sensor.kitchen_body_sensor
+      - binary_sensor.konnected_56af13_zone_1
+      - binary_sensor.konnected_56af13_zone_2
+      - binary_sensor.konnected_56af13_zone_3
+      - binary_sensor.konnected_56af13_zone_4
+      - binary_sensor.konnected_56af13_zone_5
+      - binary_sensor.konnected_56af13_zone_6

@@ -1,11 +1,11 @@
 - platform: "mqtt"
-  name: "body_sensor_occupancy_2"
+  name: "entrance_body_sensor"
   state_topic: "zigbee/tele/SENSOR"
   payload_on: "1"
   payload_off: "0"
   value_template: >
-    {% if value_json.ZigbeeReceived['0xF5B2'] is defined %}
-      {{ value_json.ZigbeeReceived['0xF5B2'].Occupancy }}
+    {% if value_json.ZbReceived['entrance_body_sensor'] is defined %}
+      {{ value_json.ZbReceived['entrance_body_sensor'].Occupancy }}
     {% else %}
-      {{ states('sensor.body_sensor_occupancy_2') }}
+      {{ states(entity_id) }}
     {% endif %}
