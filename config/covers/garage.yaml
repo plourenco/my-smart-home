@@ -1,0 +1,16 @@
+- platform: 'mqtt'
+  name: "Garage Door"
+  availability_topic: "shellies/shelly1-E8DB84D30060/online"
+  payload_available: "true"
+  payload_not_available: "false"
+  command_topic: "shellies/shelly1-E8DB84D30060/relay/0/command"
+  state_topic: "shellies/shelly1-E8DB84D30060/input/0"
+  value_template: "{{ value | int }}"
+  state_open: 1
+  state_closed: 0
+  payload_open: "on"
+  payload_close: "on"
+  payload_stop:
+  retain: false
+  optimistic: false
+  qos: 1
