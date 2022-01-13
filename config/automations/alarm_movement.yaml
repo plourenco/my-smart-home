@@ -8,8 +8,5 @@
       state: armed_away
   trigger:
     - platform: state
-      entity_id: binary_sensor.body_sensor_occupancy_1
-      to: 'on'
-    - platform: state
-      entity_id: binary_sensor.body_sensor_occupancy_2
+      entity_id: binary_sensor.body_sensors
       to: 'on'

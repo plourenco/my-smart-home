@@ -8,11 +8,10 @@
       data:
         scene_id: before_alarm
         snapshot_entities:
-          - light.living_room_lights_left_1
-          - light.living_room_lights_right_1
+          - light.living_room
     - service: light.turn_on
       data:
-        entity_id: light.living_room_lights
+        entity_id: light.living_room
         effect: "Alarm"
         brightness: 255
 - alias: 'Stop the lights when alarm is disarmed'
@@ -23,7 +22,7 @@
   action:
     - service: light.turn_on
       data: 
-        entity_id: light.living_room_lights
+        entity_id: light.living_room
         effect: "Stop"
     - service: scene.turn_on
       data:
