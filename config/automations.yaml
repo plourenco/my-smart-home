@@ -1,0 +1,123 @@
+- id: '1640227090994'
+  alias: Record camera on doorbell ring
+  description: ''
+  trigger:
+  - type: occupied
+    platform: device
+    device_id: abe2aa0a7ac54e7688e9bfaa37c7d025
+    entity_id: binary_sensor.front_door_ding
+    domain: binary_sensor
+  condition: []
+  action:
+  - service: camera.record
+    target:
+      entity_id: camera.entrance
+    data:
+      duration: 30
+      filename: /tmp/camera_entrance_{{ now().strftime("%Y%m%d-%H%M%S") }}.mp4
+  mode: single
+- id: '1640320206573'
+  alias: Turn off the boiler at a specific time
+  description: ''
+  trigger:
+  - platform: time
+    at: input_datetime.boiler_end_time
+  - platform: state
+    entity_id: switch.boiler
+    for:
+      hours: 8
+      minutes: 0
+      seconds: 0
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: switch.boiler
+    state: 'on'
+  action:
+  - service: switch.turn_off
+    target:
+      entity_id: switch.boiler
+  - service: notify.notify
+    data:
+      message: A caldeira foi desligada.
+      title: Caldeira
+  mode: single
+- id: '1640844948467'
+  alias: Notify when the garage is open
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: cover.garage_door
+    to: open
+    for:
+      hours: 0
+      minutes: 10
+      seconds: 0
+  condition: []
+  action:
+  - service: notify.notify
+    data:
+      title: Garagem
+      message: A garagem está aberta há algum tempo. Quer fechá-la?
+      data:
+        actions:
+        - action: CLOSE_GARAGE
+          title: Fechar a Garagem
+          destructive: true
+  mode: restart
+- id: '1640845153052'
+  alias: Close the garage on notification action
+  description: ''
+  trigger:
+  - platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: CLOSE_GARAGE
+  condition: []
+  action:
+  - service: cover.close_cover
+    target:
+      entity_id: cover.garage_door
+  mode: single
+- id: '1640845767668'
+  alias: Turn on the entrance lights on gate open
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: lock.entrance_small_gate
+    to: unlocked
+  - platform: state
+    entity_id: cover.garage_door
+    to: open
+  condition:
+  - condition: state
+    entity_id: light.entrance
+    state: 'off'
+  - condition: time
+    after: '18:00'
+  action:
+  - service: light.turn_on
+    target:
+      entity_id: light.entrance
+    data: {}
+  - delay:
+      hours: 0
+      minutes: 5
+      seconds: 0
+      milliseconds: 0
+  - service: light.turn_off
+    target:
+      entity_id: light.entrance
+  mode: single
+- id: '1641268171828'
+  alias: Set the default theme at start up
+  description: ''
+  trigger:
+  - event: start
+    platform: homeassistant
+  condition: []
+  action:
+  - service: frontend.set_theme
+    data:
+      name: Google Dark Theme
+  mode: single

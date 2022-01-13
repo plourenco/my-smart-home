@@ -1,0 +1,35 @@
+- id: doorbell_notify
+  alias: Send notification when doorbell rings
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.front_door_ding
+      from: 'off'
+      to: 'on'
+  action:
+    - service: camera.snapshot
+      entity_id: camera.entrance
+      data:
+        filename: "/tmp/camera_entrance_snapshot.jpg"
+    - service: notify.mobile_app_iphone_de_pedro
+      data:
+        title: Campaínha
+        message: Alguém está a tocar à campaínha!
+        data:
+          entity_id: camera.entrance
+          image: "/tmp/camera_entrance_snapshot.jpg"
+          actions:
+            - action: 'OPEN_SMALL_GATE'
+              title: 'Abrir a Porta'
+              destructive: true
+  mode: single
+- alias: Open small gate on doorbell ring
+  trigger:
+    - platform: event
+      event_type: ios.notification_action_fired
+      event_data:
+        actionName: 'OPEN_SMALL_GATE'
+  action:
+    - service: lock.open
+      target:
+        entity_id: lock.entrance_small_gate
+
