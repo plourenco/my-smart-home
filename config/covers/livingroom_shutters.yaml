@@ -8,6 +8,7 @@
   position_closed: 0
   set_position_topic: "livingroom/wallswitch_1/cmnd/ShutterPosition1"
   value_template: "{{ value | int }}"
+  state_topic: "livingroom/wallswitch_1/stat/SHUTTER1"
   command_topic: "livingroom/wallswitch_1/cmnd/Backlog"
   payload_open: "ShutterOpen1"
   payload_close: "ShutterClose1"
@@ -25,6 +26,7 @@
   position_closed: 0
   set_position_topic: "livingroom/wallswitch_2/cmnd/ShutterPosition1"
   value_template: "{{ value | int }}"
+  state_topic: "livingroom/wallswitch_1/stat/SHUTTER1"
   command_topic: "livingroom/wallswitch_2/cmnd/Backlog"
   payload_open: "ShutterOpen1"
   payload_close: "ShutterClose1"
