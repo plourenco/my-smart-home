@@ -1,0 +1,4 @@
+- platform: generic_thermostat
+  name: Boiler
+  heater: switch.boiler
+  target_sensor: sensor.processor_temperature
