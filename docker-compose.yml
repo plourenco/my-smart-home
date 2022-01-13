@@ -48,6 +48,7 @@ services:
   homeassistant:
     image: homeassistant/home-assistant
     container_name: homeassistant
+    privileged: true
     restart: always
     networks:
       homeassistant:
@@ -60,6 +61,7 @@ services:
       - 21065:21065
     volumes:
       - ./config:/config
+      - /tmp:/tmp
     environment:
       - TZ=America/New_York
     expose:
@@ -68,6 +70,10 @@ services:
 networks:
   nginx:
     driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.21.0.0/16
   homeassistant: 
     driver: bridge
     ipam:
