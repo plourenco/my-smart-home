@@ -1,0 +1,10 @@
+- platform: xiaomi_cloud_map_extractor
+  host: !secret xiaomi_vacuum_host
+  token: !secret xiaomi_vacuum_token
+  username: !secret xiaomi_cloud_username
+  password: !secret xiaomi_cloud_password
+  draw: ['all']
+  colors:
+    color_unknown: [54, 59, 95]
+  attributes:
+    - calibration_points    
