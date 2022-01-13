@@ -1,4 +1,0 @@
-- platform: lg_netcast
-  name: Living Room TV
-  host: 192.168.1.73
-  access_token: !secret lg_access_token
