@@ -1,11 +1,12 @@
 {
     "version": 1,
+    "minor_version": 1,
     "key": "lovelace",
     "data": {
         "config": {
             "title": "Home",
-            "custom_header": {
-                "compact_mode": true
+            "swipe_nav": {
+                "animate": "swipe"
             },
             "views": [
                 {
@@ -46,7 +47,7 @@
                             "entities": [
                                 {
                                     "entity": "lock.entrance_small_gate",
-                                    "name": "Port\u00e3o pequeno",
+                                    "name": "Porta",
                                     "image": "/local/img/icons/gate.svg",
                                     "secondary_info": "last-changed"
                                 },
@@ -57,7 +58,7 @@
                                     "name": "Port\u00e3o"
                                 },
                                 {
-                                    "entity": "cover.garage_gate",
+                                    "entity": "cover.garage_door",
                                     "image": "/local/img/icons/garage.svg",
                                     "secondary_info": "last-changed",
                                     "name": "Garagem"
@@ -70,7 +71,8 @@
                                 {
                                     "entity": "binary_sensor.front_door_ding",
                                     "secondary_info": "last-changed",
-                                    "name": "Campa\u00ednha"
+                                    "name": "Campa\u00ednha",
+                                    "icon": "ios:bell-fill#fullcolor"
                                 },
                                 {
                                     "entity": "sensor.front_door_wifi_signal_strength",
@@ -79,15 +81,16 @@
                                 {
                                     "entity": "binary_sensor.front_door_motion",
                                     "secondary_info": "last-changed",
-                                    "name": "Movimento Campa\u00ednha"
+                                    "name": "Movimento Campa\u00ednha",
+                                    "icon": "ios:bell-and-waveform-fill"
                                 },
                                 {
-                                    "entity": "binary_sensor.body_sensor_occupancy_2",
+                                    "entity": "binary_sensor.kitchen_body_sensor",
                                     "name": "Movimento Hall",
                                     "secondary_info": "last-changed"
                                 },
                                 {
-                                    "entity": "binary_sensor.body_sensor_occupancy_1",
+                                    "entity": "binary_sensor.entrance_body_sensor",
                                     "name": "Movimento Cozinha",
                                     "secondary_info": "last-changed"
                                 }
@@ -97,84 +100,53 @@
                             "state_color": true
                         },
                         {
-                            "type": "picture-entity",
-                            "entity": "camera.front_door"
+                            "type": "alarm-panel",
+                            "entity": "alarm_control_panel.home_alarm",
+                            "name": "Alarme"
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "switch.boiler",
+                                    "name": "Central",
+                                    "icon": "mdi:radiator",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "input_datetime.boiler_end_time",
+                                    "name": "Desligar \u00e0s"
+                                }
+                            ],
+                            "title": "Aquecimento",
+                            "state_color": true
                         },
                         {
                             "type": "entities",
                             "entities": [
                                 {
                                     "entity": "light.entrance",
-                                    "name": "Luzes de entrada",
+                                    "name": "Luzes de entrada exteriores",
                                     "secondary_info": "last-changed"
                                 }
                             ],
-                            "title": "Exterior",
+                            "title": "Luzes",
                             "show_header_toggle": false
-                        },
-                        {
-                            "type": "alarm-panel",
-                            "entity": "alarm_control_panel.home_alarm"
-                        },
-                        {
-                            "type": "horizontal-stack",
-                            "cards": [
-                                {
-                                    "type": "custom:mini-graph-card",
-                                    "name": "Bateria",
-                                    "entities": [
-                                        "sensor.330e_iperformance_charging_level_hv"
-                                    ],
-                                    "line_color": "var(--info-color)",
-                                    "line_width": 8,
-                                    "font_size": 75
-                                },
-                                {
-                                    "type": "custom:mini-graph-card",
-                                    "name": "Alcance Combust\u00edvel",
-                                    "entities": [
-                                        "sensor.330e_iperformance_remaining_range_fuel"
-                                    ],
-                                    "line_color": "#e74c3c",
-                                    "line_width": 8,
-                                    "font_size": 75
-                                },
-                                {
-                                    "type": "custom:mini-graph-card",
-                                    "name": "Alcance El\u00e9trico",
-                                    "entities": [
-                                        "sensor.330e_iperformance_remaining_range_electric"
-                                    ],
-                                    "line_color": "var(--accent-color)",
-                                    "line_width": 8,
-                                    "font_size": 75
-                                }
-                            ]
-                        },
-                        {
-                            "type": "entities",
-                            "entities": [
-                                {
-                                    "entity": "climate.boiler",
-                                    "name": "Central"
-                                }
-                            ],
-                            "title": "Aquecimento"
                         },
                         {
                             "type": "custom:mini-graph-card",
                             "entities": [
                                 {
-                                    "entity": "binary_sensor.body_sensor_occupancy_2",
+                                    "entity": "binary_sensor.entrance_body_sensor",
                                     "name": "Hall"
                                 },
                                 {
-                                    "entity": "binary_sensor.body_sensor_occupancy_1",
+                                    "entity": "binary_sensor.kitchen_body_sensor",
                                     "name": "Cozinha"
                                 },
                                 {
                                     "entity": "binary_sensor.front_door_motion",
-                                    "name": "Entrada"
+                                    "name": "Exterior"
                                 }
                             ],
                             "name": "Movimento (\u00faltima hora)",
@@ -196,21 +168,11 @@
                             ]
                         },
                         {
-                            "type": "custom:mini-graph-card",
-                            "name": "Qualidade do Ar",
-                            "entities": [
-                                "sensor.waqi_sobreiras_lordelo_do_ouro_porto_portugal"
-                            ],
-                            "line_color": "var(--info-color)",
-                            "line_width": 8,
-                            "font_size": 75
-                        },
-                        {
                             "type": "picture-elements",
                             "elements": [
                                 {
                                     "type": "state-badge",
-                                    "entity": "binary_sensor.330e_iperformance_lids",
+                                    "entity": "binary_sensor.330e_iperformance_windows",
                                     "style": {
                                         "top": "32%",
                                         "left": "40%",
@@ -219,7 +181,7 @@
                                 },
                                 {
                                     "type": "state-badge",
-                                    "entity": "binary_sensor.330e_iperformance_lights_parking",
+                                    "entity": "binary_sensor.330e_iperformance_door_lock_state",
                                     "style": {
                                         "top": "55%",
                                         "left": "10%",
@@ -237,6 +199,327 @@
                                 }
                             ],
                             "image": "/local/img/car-top-view.png"
+                        }
+                    ]
+                },
+                {
+                    "title": "C\u00e2maras",
+                    "path": "cameras",
+                    "icon": "mdi:camera",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "picture-entity",
+                            "entity": "camera.entrance",
+                            "name": "Entrada",
+                            "camera_image": "camera.entrance",
+                            "camera_view": "live",
+                            "show_state": false
+                        }
+                    ]
+                },
+                {
+                    "title": "Sala",
+                    "path": "livingroom",
+                    "icon": "mdi:sofa",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "entities",
+                            "title": "Persianas",
+                            "show_header_toggle": false,
+                            "debug_cardmod": true,
+                            "style": {
+                                ".": {
+                                    ".card-content": {
+                                        "slider-entity-row": {
+                                            "$": {
+                                                "hui-generic-entity-row": {
+                                                    "$": "state-badge {border-radius: 0%}\n"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "entities": [
+                                {
+                                    "type": "custom:slider-entity-row",
+                                    "entity": "cover.living_room_shutter_left",
+                                    "secondary_info": "last-changed",
+                                    "full_row": false,
+                                    "name": "Esquerda"
+                                },
+                                {
+                                    "type": "custom:slider-entity-row",
+                                    "entity": "cover.living_room_shutter_right",
+                                    "secondary_info": "last-changed",
+                                    "full_row": false,
+                                    "name": "Direita"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "type": "custom:rgb-light-card",
+                                    "entity": "light.living_room",
+                                    "colors": [
+                                        {
+                                            "profile": "bright",
+                                            "label": "Claro",
+                                            "icon_color": "#ffffff"
+                                        },
+                                        {
+                                            "profile": "sunset",
+                                            "label": "M\u00e9dio",
+                                            "icon_color": "#fef69e"
+                                        },
+                                        {
+                                            "profile": "evening",
+                                            "label": "Noite",
+                                            "icon_color": "#feca55"
+                                        },
+                                        {
+                                            "profile": "movie",
+                                            "label": "Suave",
+                                            "icon_color": "#feca5569"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "entity": "light.living_room",
+                                    "name": "Todas",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "light.living_room_drawer_lights",
+                                    "name": "Candeeiro C\u00f3moda",
+                                    "secondary_info": "brightness"
+                                },
+                                {
+                                    "entity": "light.living_room_tv_lights",
+                                    "name": "Candeeiro TV",
+                                    "secondary_info": "brightness"
+                                }
+                            ],
+                            "title": "Luzes",
+                            "show_header_toggle": false
+                        },
+                        {
+                            "type": "entities",
+                            "title": "Aparelhos",
+                            "show_header_toggle": false,
+                            "style": {
+                                ".": {
+                                    ".card-content": {
+                                        "hui-media-player-entity-row": {
+                                            "$": {
+                                                "hui-generic-entity-row": {
+                                                    "$": "state-badge {border-radius: 0%}\n"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "entities": [
+                                {
+                                    "entity": "media_player.living_room_tv",
+                                    "image": "/local/img/icons/tv.svg",
+                                    "name": "TV"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "custom:xiaomi-vacuum-map-card",
+                            "title": "",
+                            "preset_name": "Live map",
+                            "entity": "vacuum.rockrobo_vacuum_v1",
+                            "map_source": {
+                                "camera": "camera.xiaomi_cloud_map_extractor"
+                            },
+                            "calibration_source": {
+                                "camera": true
+                            },
+                            "vacuum_platform": "default",
+                            "two_finger_pan": true,
+                            "map_locked": true,
+                            "map_modes": [
+                                {
+                                    "template": "vacuum_clean_zone"
+                                },
+                                {
+                                    "template": "vacuum_clean_zone_predefined",
+                                    "predefined_selections": [
+                                        {
+                                            "zones": [
+                                                [
+                                                    15874,
+                                                    23277,
+                                                    26109,
+                                                    27478
+                                                ],
+                                                [
+                                                    15841,
+                                                    22683,
+                                                    20491,
+                                                    23298
+                                                ]
+                                            ],
+                                            "label": {
+                                                "text": "Sala",
+                                                "x": 20855,
+                                                "y": 24200
+                                            },
+                                            "icon": {
+                                                "name": "mdi:sofa",
+                                                "x": 20874,
+                                                "y": 25500
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "template": "vacuum_goto"
+                                },
+                                {
+                                    "template": "vacuum_follow_path"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "custom:purifier-card",
+                            "entity": "fan.zhimi_airpurifier_mb4",
+                            "compact_view": false,
+                            "show_name": true,
+                            "aqi": {
+                                "entity_id": "sensor.zhimi_airpurifier_mb4_pm2_5",
+                                "unit": "PM2.5"
+                            },
+                            "stats": [
+                                {
+                                    "entity_id": "sensor.zhimi_airpurifier_mb4_filter_life_remaining",
+                                    "unit": "%",
+                                    "subtitle": "Filter Remaining"
+                                },
+                                {
+                                    "entity_id": "number.zhimi_airpurifier_mb4_favorite_motor_speed",
+                                    "unit": "RPM",
+                                    "subtitle": "Motor Speed"
+                                }
+                            ],
+                            "shortcuts": [
+                                {
+                                    "name": "Silent",
+                                    "icon": "mdi:weather-night",
+                                    "preset_mode": "Silent"
+                                },
+                                {
+                                    "name": "Auto",
+                                    "icon": "mdi:brightness-auto",
+                                    "preset_mode": "Auto"
+                                },
+                                {
+                                    "name": "50%",
+                                    "icon": "mdi:circle-slice-4",
+                                    "preset_mode": "Favorite",
+                                    "service": "number.set_value",
+                                    "service_data": {
+                                        "entity_id": "number.zhimi_airpurifier_mb4_favorite_motor_speed",
+                                        "value": "1200"
+                                    }
+                                },
+                                {
+                                    "name": "100%",
+                                    "icon": "mdi:circle-slice-8",
+                                    "preset_mode": "Favorite",
+                                    "service": "number.set_value",
+                                    "service_data": {
+                                        "entity_id": "number.zhimi_airpurifier_mb4_favorite_motor_speed",
+                                        "value": "2200"
+                                    }
+                                }
+                            ],
+                            "show_state": false,
+                            "show_toolbar": true
+                        }
+                    ]
+                },
+                {
+                    "title": "Monitoriza\u00e7\u00e3o",
+                    "path": "monitoring",
+                    "icon": "mdi:cpu-64-bit",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "custom:mini-graph-card",
+                            "entities": [
+                                "sensor.memory_free"
+                            ],
+                            "name": "Mem\u00f3ria",
+                            "hours_to_show": 24,
+                            "points_per_hour": 0.5
+                        },
+                        {
+                            "type": "custom:mini-graph-card",
+                            "entities": [
+                                "sensor.processor_use_percent"
+                            ],
+                            "name": "CPU",
+                            "hours_to_show": 24,
+                            "points_per_hour": 2,
+                            "line_color": "var(--info-color)"
+                        },
+                        {
+                            "type": "custom:mini-graph-card",
+                            "name": "Rede",
+                            "icon": "mdi:server",
+                            "entities": [
+                                {
+                                    "entity": "sensor.network_in_eth0",
+                                    "name": "Network In"
+                                },
+                                {
+                                    "entity": "sensor.network_out_eth0",
+                                    "name": "Network Out"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "custom:mini-graph-card",
+                            "entities": [
+                                {
+                                    "entity": "sensor.disk_use_percent"
+                                }
+                            ],
+                            "name": "Disco",
+                            "hours_to_show": 168,
+                            "group_by": "date"
+                        },
+                        {
+                            "type": "custom:mini-graph-card",
+                            "entities": [
+                                "sensor.processor_temperature"
+                            ],
+                            "show": {
+                                "labels": true
+                            },
+                            "color_thresholds": [
+                                {
+                                    "value": 50,
+                                    "color": "#f39c12"
+                                },
+                                {
+                                    "value": 70,
+                                    "color": "#d35400"
+                                },
+                                {
+                                    "value": 90,
+                                    "color": "#c0392b"
+                                }
+                            ]
                         }
                     ]
                 }

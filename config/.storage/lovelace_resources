@@ -1,5 +1,6 @@
 {
     "version": 1,
+    "minor_version": 1,
     "key": "lovelace_resources",
     "data": {
         "items": [
@@ -17,11 +18,6 @@
                 "url": "/local/slider-entity-row/slider-entity-row.js",
                 "type": "module",
                 "id": "79a11d2a5b6b4f59bcdfdc4dd4503f00"
-            },
-            {
-                "url": "/local/weather-card/weather-card.js",
-                "type": "module",
-                "id": "97dce93efc1d42b59cbe26c90783f4b1"
             },
             {
                 "url": "/local/layout-card/layout-card.js",
@@ -44,14 +40,19 @@
                 "id": "83f981f1c9424d47a778977ab5d012d5"
             },
             {
-                "url": "/local/search-card/search-card.js",
+                "url": "/local/swipe-navigation/swipe-navigation.js",
                 "type": "module",
-                "id": "920482619f7e40efb62dbdd5f1f170e8"
+                "id": "e8e6292c0898492282e1fdbfdf3cd7c2"
             },
             {
-                "url": "/local/custom-header/custom-header.js",
+                "url": "/local/rgb-light-card/rgb-light-card.js",
                 "type": "module",
-                "id": "9fe9026f1fdf4415b5633601eeac54f2"
+                "id": "51e2e00978e0480b8adb935dcdddaa20"
+            },
+            {
+                "url": "/local/purifier-card/purifier-card.js",
+                "type": "module",
+                "id": "c3f0d89b513a4735ada601dac247d3ac"
             }
         ]
     }
