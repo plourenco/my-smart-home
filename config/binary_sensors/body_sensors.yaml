@@ -1,7 +1,7 @@
-binary_sensor:
-  - platform: group
-    name: Body sensors
-    entities:
+- platform: group
+  name: Body sensors
+  unique_id: body_sensors
+  entities:
       - binary_sensor.entrance_body_sensor
       - binary_sensor.kitchen_body_sensor
       - binary_sensor.konnected_56af13_zone_1

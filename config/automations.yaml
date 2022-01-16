@@ -121,3 +121,115 @@
     data:
       name: Google Dark Theme
   mode: single
+- id: '1642368840598'
+  alias: Trigger the alarm when movement is detected
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.body_sensors
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: alarm_control_panel.home_alarm
+    state: armed_away
+  action:
+  - service: alarm_control_panel.alarm_trigger
+    target:
+      entity_id: alarm_control_panel.home_alarm
+  mode: single
+- id: '1642368957917'
+  alias: Flash the lights when alarm is triggerd
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: alarm_control_panel.home_alarm
+    to: triggered
+  condition: []
+  action:
+  - service: scene.create
+    data:
+      scene_id: before_alarm
+      snapshot_entities:
+      - light.living_room
+  - service: light.turn_on
+    data:
+      entity_id: light.living_room
+      effect: Alarm
+      brightness: 255
+  - wait_for_trigger:
+    - platform: state
+      entity_id: alarm_control_panel.home_alarm
+      to: disarmed
+    continue_on_timeout: true
+    timeout: '300000'
+  - service: light.turn_on
+    data:
+      entity_id: light.living_room
+      effect: Stop
+  - service: scene.turn_on
+    data:
+      entity_id: scene.before_alarm
+  mode: single
+- id: '1642369308931'
+  alias: Notify when alarm is triggered
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: alarm_control_panel.home_alarm
+    to: triggered
+  condition: []
+  action:
+  - service: notify.notify
+    data:
+      title: Alarme disparado
+      message: O alarme disparou às {{ states('sensor.time') }}!
+  - wait_for_trigger:
+    - platform: state
+      entity_id: alarm_control_panel.home_alarm
+      to: disarmed
+    timeout: '300000'
+  - service: notify.notify
+    data:
+      title: Alarme desarmado
+      message: O alarme foi desarmado às {{ states('sensor.time') }}
+  mode: single
+- id: '1642369789541'
+  alias: Notify when doorbell rings
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: binary_sensor.front_door_ding
+    from: 'off'
+    to: 'on'
+  condition: []
+  action:
+  - service: camera.snapshot
+    entity_id: camera.entrance
+    data:
+      filename: /tmp/camera_entrance_snapshot.jpg
+  - service: notify.notify
+    data:
+      title: Campaínha
+      message: Alguém está a tocar à campaínha!
+      data:
+        entity_id: camera.entrance
+        image: /tmp/camera_entrance_snapshot.jpg
+        actions:
+        - action: OPEN_SMALL_GATE
+          title: Abrir a Porta
+          destructive: true
+  mode: single
+- id: '1642369835158'
+  alias: Open small gate on notification action
+  description: ''
+  trigger:
+  - platform: event
+    event_type: ios.notification_action_fired
+    event_data:
+      actionName: OPEN_SMALL_GATE
+  condition: []
+  action:
+  - service: lock.open
+    target:
+      entity_id: lock.entrance_small_gate
+  mode: single
