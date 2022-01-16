@@ -4,7 +4,14 @@ ddclient/
 nginx/
 mqtt/
 
+# Home assistant
+config/blueprints
+custom_components
+config/tts/
+*.db-*
+
 # Other
 init-letsencrypt.sh
 .DS_Store
-custom_components
+*.log
+*.log.*
