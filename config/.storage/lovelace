@@ -109,17 +109,31 @@
                             "entities": [
                                 {
                                     "entity": "switch.boiler",
-                                    "name": "Central",
+                                    "name": "Estado",
                                     "icon": "mdi:radiator",
                                     "secondary_info": "last-changed"
                                 },
                                 {
                                     "entity": "input_datetime.boiler_end_time",
                                     "name": "Desligar \u00e0s"
+                                },
+                                {
+                                    "entity": "input_boolean.boiler_auto_mode",
+                                    "name": "Modo autom\u00e1tico"
+                                },
+                                {
+                                    "entity": "input_number.boiler_temperature",
+                                    "name": "Temperatura max."
                                 }
                             ],
                             "title": "Aquecimento",
-                            "state_color": true
+                            "state_color": true,
+                            "footer": {
+                                "type": "graph",
+                                "entity": "sensor.dht_sensor_temperature",
+                                "hours_to_show": 24
+                            },
+                            "show_header_toggle": false
                         },
                         {
                             "type": "entities",
@@ -356,27 +370,49 @@
                                         {
                                             "zones": [
                                                 [
-                                                    15874,
-                                                    23277,
-                                                    26109,
-                                                    27478
+                                                    19976,
+                                                    23173,
+                                                    21148,
+                                                    27239
                                                 ],
                                                 [
-                                                    15841,
-                                                    22683,
-                                                    20491,
-                                                    23298
+                                                    15977,
+                                                    22861,
+                                                    19950,
+                                                    27550
+                                                ],
+                                                [
+                                                    21178,
+                                                    23129,
+                                                    26218,
+                                                    27595
                                                 ]
                                             ],
-                                            "label": {
-                                                "text": "Sala",
-                                                "x": 20855,
-                                                "y": 24200
-                                            },
                                             "icon": {
                                                 "name": "mdi:sofa",
                                                 "x": 20874,
                                                 "y": 25500
+                                            }
+                                        },
+                                        {
+                                            "zones": [
+                                                [
+                                                    26156,
+                                                    22995,
+                                                    29328,
+                                                    27239
+                                                ],
+                                                [
+                                                    23756,
+                                                    19705,
+                                                    29328,
+                                                    22971
+                                                ]
+                                            ],
+                                            "icon": {
+                                                "name": "mdi:countertop",
+                                                "x": 27700,
+                                                "y": 24000
                                             }
                                         }
                                     ]
