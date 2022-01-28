@@ -1,0 +1,13 @@
+- platform: generic_thermostat
+  name: Boiler
+  unique_id: boiler
+  min_temp: 18
+  max_temp: 25
+  target_temp: 22
+  cold_tolerance: 0.5
+  ac_mode: false
+  min_cycle_duration:
+    seconds: 60
+  precision: 0.5
+  heater: switch.boiler
+  target_sensor: sensor.dht_sensor_temperature
