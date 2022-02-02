@@ -14,7 +14,12 @@
       entity_id: camera.entrance
     data:
       duration: 30
-      filename: /tmp/camera_entrance_{{ now().strftime("%Y%m%d-%H%M%S") }}.mp4
+      filename: /media/camera_entrance_{{ now().strftime("%Y%m%d-%H%M%S") }}.mp4
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 40
+      milliseconds: 0
   mode: single
 - id: '1640320206573'
   alias: Turn off the boiler at a specific time
@@ -161,7 +166,7 @@
       entity_id: alarm_control_panel.home_alarm
       to: disarmed
     continue_on_timeout: true
-    timeout: '300000'
+    timeout: '60000'
   - service: light.turn_on
     data:
       entity_id: light.living_room
