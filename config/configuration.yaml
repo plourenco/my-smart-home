@@ -7,8 +7,11 @@ homeassistant:
     - type: totp
   whitelist_external_dirs:
     - /tmp
+    - /media
   external_url: "https://home.plourenco.com"
   internal_url: "https://home.plourenco.com"
+  media_dirs:
+    local: /media
 
 system_health:
 logger:
@@ -98,6 +101,7 @@ recorder:
 # Mobile app integration
 mobile_app:
 notify: !include notify.yaml
+media_source:
 
 # Devices
 group: !include groups.yaml
