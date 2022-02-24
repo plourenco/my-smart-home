@@ -52,7 +52,7 @@
   description: ''
   trigger:
   - platform: state
-    entity_id: cover.garage_door
+    entity_id: cover.garage
     to: open
     for:
       hours: 0
@@ -82,7 +82,8 @@
   action:
   - service: cover.close_cover
     target:
-      entity_id: cover.garage_door
+      entity_id:
+      - cover.garage
   mode: single
 - id: '1640845767668'
   alias: Turn on the entrance lights on gate open
@@ -92,7 +93,7 @@
     entity_id: lock.entrance_small_gate
     to: unlocked
   - platform: state
-    entity_id: cover.garage_door
+    entity_id: cover.garage
     to: open
   condition:
   - condition: state

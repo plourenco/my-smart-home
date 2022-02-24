@@ -58,7 +58,7 @@
                                     "name": "Port\u00e3o"
                                 },
                                 {
-                                    "entity": "cover.garage_door",
+                                    "entity": "cover.garage",
                                     "image": "/local/img/icons/garage.svg",
                                     "secondary_info": "last-changed",
                                     "name": "Garagem"
@@ -259,14 +259,14 @@
                             "entities": [
                                 {
                                     "type": "custom:slider-entity-row",
-                                    "entity": "cover.living_room_shutter_left",
+                                    "entity": "cover.livingroom_left",
                                     "secondary_info": "last-changed",
                                     "full_row": false,
                                     "name": "Esquerda"
                                 },
                                 {
                                     "type": "custom:slider-entity-row",
-                                    "entity": "cover.living_room_shutter_right",
+                                    "entity": "cover.livingroom_right",
                                     "secondary_info": "last-changed",
                                     "full_row": false,
                                     "name": "Direita"

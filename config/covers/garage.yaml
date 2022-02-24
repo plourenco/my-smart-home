@@ -1,5 +1,6 @@
-- platform: 'mqtt'
-  name: "Garage Door"
+- platform: "mqtt"
+  name: "Garage"
+  unique_id: "garage"
   availability_topic: "shellies/shelly1-E8DB84D30060/online"
   payload_available: "true"
   payload_not_available: "false"
